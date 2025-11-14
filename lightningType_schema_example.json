@@ -1,0 +1,38 @@
+// Based on Salesforce documentation, here are the possible formats to try:
+
+// Format 1: Root level (most common)
+{
+  "lightning:type": "@apexClassType/c__HotelResponse",
+  "title": "Hotel Response",
+  "description": ""
+}
+
+// Format 2: Inside $ object
+{
+  "$": {
+    "lightning:type": "@apexClassType/c__HotelResponse"
+  },
+  "title": "Hotel Response",
+  "description": ""
+}
+
+// Format 3: Without @apexClassType prefix (if class is in default namespace)
+{
+  "lightning:type": "c__HotelResponse",
+  "title": "Hotel Response",
+  "description": ""
+}
+
+// Format 4: Just class name (if no namespace)
+{
+  "lightning:type": "HotelResponse",
+  "title": "Hotel Response",
+  "description": ""
+}
+
+// The error message suggests the format might need to be validated against
+// the actual deployed Apex class. Make sure:
+// 1. HotelResponse.cls is deployed
+// 2. It's a global class
+// 3. It has @InvocableVariable annotations
+

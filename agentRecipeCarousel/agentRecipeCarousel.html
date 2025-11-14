@@ -1,0 +1,55 @@
+<template>
+  <div class="carousel">
+    <button class="nav" aria-label="Previous" title="Previous" onclick={previous} disabled={isPrevDisabled}>
+      <svg class="arrow-icon" viewBox="0 0 11 18" xmlns="http://www.w3.org/2000/svg">
+        <polyline points="10.5,0 0,9 10.5,18"></polyline>
+      </svg>
+    </button>
+    <div class="carousel-viewport">
+      <div class="carousel-track" style={trackStyle}>
+        <template for:each={cards} for:item="card">
+          <div key={card.title} class="carousel-slide">
+            <div class="recipe-card">
+              <img class="recipe-image" src={card.imageUrl} alt={card.title} />
+              <div class="recipe-body">
+                <h3 class="recipe-title" title={card.title}>{card.title}</h3>
+                <div class="recipe-meta">
+                  <span class="meta-item">
+                    <span class="recipeDetailText">{card.prep}</span>
+                  </span>
+                  <span class="meta-item">
+                    <span class="recipeDetailText">{card.cook}</span>
+                  </span>
+                  <div class="meta-item">
+                    <span class="recipeDetailText">{card.serves}</span>
+                  </div>
+                </div>
+                <a class="recipe-btn" href={card.ctaHref} target="_blank" rel="noopener">
+                  <span class="recipe-cta">{card.ctaLabel}</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </template>
+      </div>
+    </div>
+    <button class="nav" aria-label="Next" title="Next" onclick={next} disabled={isNextDisabled}>
+      <svg class="arrow-icon" viewBox="0 0 11 18" xmlns="http://www.w3.org/2000/svg">
+        <polyline points="0,0 10.5,9 0,18"></polyline>
+      </svg>
+    </button>
+  </div>
+  <div class="carousel-dots">
+    <template for:each={dots} for:item="dot">
+      <button
+        key={dot.index}
+        class={dot.className}
+        data-index={dot.index}
+        aria-label={dot.label}
+        title={dot.label}
+        onclick={goTo}
+      ></button>
+    </template>
+  </div>
+</template>
+

@@ -1,0 +1,53 @@
+<template>
+    <lightning-card title="Hotel Search" icon-name="standard:travel_mode">
+        <div class="slds-p-around_medium">
+            <div class="slds-grid slds-grid_vertical slds-gutters">
+                <!-- City Input -->
+                <div class="slds-col">
+                    <lightning-input
+                        label="City"
+                        value={city}
+                        onchange={handleCityChange}
+                        placeholder="Enter city name"
+                        required>
+                    </lightning-input>
+                </div>
+
+                <!-- Check-in Date -->
+                <div class="slds-col">
+                    <lightning-input
+                        type="date"
+                        label="Check-in Date"
+                        value={checkInDate}
+                        onchange={handleCheckInDateChange}
+                        required>
+                    </lightning-input>
+                </div>
+
+                <!-- Check-out Date -->
+                <div class="slds-col">
+                    <lightning-input
+                        type="date"
+                        label="Check-out Date"
+                        value={checkOutDate}
+                        onchange={handleCheckOutDateChange}
+                        required>
+                    </lightning-input>
+                </div>
+
+                <!-- Number of Guests -->
+                <div class="slds-col">
+                    <lightning-input
+                        type="number"
+                        label="Number of Guests"
+                        value={numberOfGuests}
+                        onchange={handleNumberOfGuestsChange}
+                        min="1"
+                        max="10">
+                    </lightning-input>
+                </div>
+            </div>
+        </div>
+    </lightning-card>
+</template>
+
